@@ -8,29 +8,74 @@
 </head>
 <body>
   <header>
-    <h3><i>Happy Independence Day </i></h3>
+    <h2><i>Happy Independence Day </i></h2>
     <h5><i>Showcasing India's kaleidoscopic diversity</i></h5>
     </header>
   <div class="container">
     <div class="card-container">
-      <button class="card saffron-card">
-        <h2>Cultural Heritage</h2>
-        <p>India's diverse culture is a tapestry woven with countless traditions</p>
-        <img src="culdiv.jpeg" alt="Cultural Heritage" height="200px" width="200px">
+
+      <button class="card saffron-card" id="popup1">
+        <h3>Cultural Heritage</h3>
+        <p id="ps">India's diverse culture is a tapestry woven with countless traditions</p>
+        <img src="culdiv.jpeg" alt="Cultural Heritage" height="200px" width="200px" >
       </button>
-      <button class="card white-card">
-        <h2>Religious Pluralism</h2>
-        <p>India is home to a multitude of religions</p><br><br>
+      <!-- Add popup content for the first button -->
+      <div class="popup popup-orange" id="popup1-content">
+        <span class="popup-close" id="popup1-close">&times;</span>
+        <p>India's cultural heritage is a beautiful blend of unity and diversity. It's a place where people come together with different backgrounds while cherishing their unique traditions. This mix creates a colorful and harmonious tapestry that defines the essence of India.</p>
+      </div>
+
+      <button class="card white-card" id="popup2">
+        <h3>Religious Pluralism</h3>
+        <p id="ps">India is home to a multitude of religions and faiths</p><br><br>
         <img src="card22.jpeg" alt="Religious Pluralism" height="230px" width="200px">
       </button>
-      <button class="card green-card">
-        <h2>Linguistic Diversity</h2>
-        <p>A wide array of languages reflects India's linguistic diversity</p>
+      <!-- Add popup content for the second button -->
+      <div class="popup popup-white" id="popup2-content">
+        <span class="popup-close" id="popup2-close">&times;</span>
+          <p>Religious pluralism embodies peaceful coexistence of diverse beliefs, fostering unity among unique paths to the divine, while vibrant festivals further enrich this tapestry of harmony.</p>
+      </div>
+      
+
+      <button class="card green-card" id="popup3">
+        <h3>Linguistic Diversity</h3>
+        <p id="ps">A wide array of languages reflects India's linguistic diversity</p>
         <br><br><br>
         <img src="card3.jpg" alt="Linguistic Diversity" height="330px" width="200px">
       </button>
-      <p>  &copy; Created by Nidhi Charate  </p>
+      <!-- Add popup content for the third button -->
+      <div class="popup popup-green" id="popup3-content">
+        <span class="popup-close" id="popup3-close">&times;</span>
+        <p>India's linguistic diversity exemplifies both unity and diversity. With a multitude of languages spoken across the country, it forms a vibrant mosaic of communication. While languages vary, they collectively underline the nation's rich cultural tapestry, fostering a sense of unity in diversity.</p>
+      </div>
+
+      <p id="ps">  &copy; Created with &#10084; by Nidhi Charate  </p>
     </div>
   </div>
+
+
+  <script>
+    // JavaScript to show/hide popups
+    const buttons = document.querySelectorAll('.card');
+    buttons.forEach((button, index) => {
+      const popupContent = document.getElementById(`popup${index + 1}-content`);
+      const popupClose = document.getElementById(`popup${index + 1}-close`);
+      
+      button.addEventListener('click', () => {
+        popupContent.style.display = 'block';
+      });
+
+      popupClose.addEventListener('click', () => {
+        popupContent.style.display = 'none';
+      });
+
+      window.addEventListener('click', (event) => {
+        if (event.target === popupContent) {
+          popupContent.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
